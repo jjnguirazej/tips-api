@@ -19,4 +19,6 @@ public function boot()
     Schema::defaultStringLength(191);
 }
 
-podes
+## Controller e namespace
+
+quando criamos um controller dentro de uma pasta, devemos mudar o namespace para aquelela pasta

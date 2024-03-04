@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Task;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\TaskResource;
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
 
@@ -14,7 +15,10 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return Task::all();
+        // return Task::all(); Alem de retornar um Eleoquente como este
+        //Agora retonamos o resourse, e ja que estamos a chamar o colection de task
+        // quando chamamos o TaskResource devemos chamar o colection
+        return TaskResource::collection(Task::all());
     }
 
     /**
@@ -38,7 +42,9 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-        //
+        //Para o metodo show ja que estamos a chamar apenas uma task entao usamos o metodo make e pasamos a instancia
+
+        return TaskResource::make($task);
     }
 
     /**

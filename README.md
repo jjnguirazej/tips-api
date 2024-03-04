@@ -22,3 +22,7 @@ public function boot()
 ## Controller e namespace
 
 quando criamos um controller dentro de uma pasta, devemos mudar o namespace para aquelela pasta
+
+## API Resource
+
+api resorce e' uma forma de transformar o resultado Eloquente para Json respose, e para criar um resource use o comando "php artisan make:resource NomeDoResource",e o ficheiro vai ser criado na pasta http/resources

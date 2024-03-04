@@ -52,3 +52,37 @@ Route::get('exemplo', 'ExampleController');
 O método __invoke() do controlador ExampleController será chamado automaticamente. Isso torna o código mais conciso e direto, especialmente quando você tem controladores que realizam apenas uma única ação.
 
 Os controladores invocáveis são úteis quando você deseja manter sua aplicação mais organizada e orientada a objetos, permitindo que você separe facilmente a lógica do controlador de outras partes da aplicação.
+
+# Laravel Sanctum
+O Laravel Sanctum é uma biblioteca oficial do Laravel que oferece autenticação API simples e eficiente. É especialmente útil para aplicativos como Single Page Applications (SPAs) e aplicativos móveis que consomem APIs.
+
+## Recursos Principais:
+
+- Autenticação Baseada em Tokens: Utiliza tokens de acesso para autenticar solicitações de API, tornando-a ideal para aplicativos onde a autenticação de sessão tradicional não é prática.
+
+- Tokens de API Stateful e Stateless: Suporta tokens de API associados a usuários autenticados e armazenados no banco de dados, assim como tokens gerados e validados usando chaves secretas.
+
+- Autenticação via Cookies: Além dos tokens de API, permite autenticação via cookies, útil para autenticar solicitações da API e da web tradicional.
+
+- Integração Perfeita com o Laravel: Se integra facilmente com outras funcionalidades do Laravel, como middlewares e políticas de autorização.
+
+- Configuração Flexível: Oferece configuração flexível para atender às necessidades específicas do aplicativo, incluindo guardas de autenticação, modelos de token e tipos de autenticação suportados.
+
+- Proteção CSRF: Protege contra ataques CSRF gerando automaticamente tokens CSRF para cada sessão de usuário.
+
+## Uso
+
+- Instale o Laravel Sanctum via Composer:
+  
+```bash composer require laravel/sanctum
+
+```bash php artisan migrate
+
+- Execute as migrações:
+
+```bash composer require laravel/sanctum
+ depois temos que criar a sessao no file .env que SESSION_DOMAIN = localhost (se estiver na maquina local)
+
+## Nas versoes actual de LAravel nos apenas devemos descomentar  no karnel api, a linha
+\Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+

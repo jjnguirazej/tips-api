@@ -11,7 +11,8 @@ class StoreTaskRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        //Para autrozar a validacao devemos retornar true
+        return true;
     }
 
     /**
@@ -21,8 +22,9 @@ class StoreTaskRequest extends FormRequest
      */
     public function rules(): array
     {
+        // neste metodo vamos indicar os campos que ssao required
         return [
-            //
+            'name'  => 'required|string|max:255'
         ];
     }
 }

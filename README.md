@@ -26,3 +26,29 @@ quando criamos um controller dentro de uma pasta, devemos mudar o namespace para
 ## API Resource
 
 api resorce e' uma forma de transformar o resultado Eloquente para Json respose, e para criar um resource use o comando "php artisan make:resource NomeDoResource",e o ficheiro vai ser criado na pasta http/resources
+
+## InvocakableController
+ um controlador invocável (invokable controller) é um tipo especial de controlador que implementa a interface __invoke. Quando um controlador é invocável, isso significa que ele pode ser chamado diretamente como uma função.
+
+Por exemplo, considere um controlador chamado ExampleController:
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class ExampleController extends Controller
+{
+    public function __invoke(Request $request)
+    {
+        return 'Exemplo de controlador invocável';
+    }
+}
+
+Neste exemplo, o controlador ExampleController implementa a interface __invoke. Isso significa que ele pode ser invocado diretamente como uma função. Então, em vez de definir várias ações de controlador como métodos separados (index(), show(), store(), etc.), você pode definir toda a lógica do controlador dentro do método __invoke.
+
+Ao chamar este controlador em uma rota, por exemplo:
+Route::get('exemplo', 'ExampleController');
+
+O método __invoke() do controlador ExampleController será chamado automaticamente. Isso torna o código mais conciso e direto, especialmente quando você tem controladores que realizam apenas uma única ação.
+
+Os controladores invocáveis são úteis quando você deseja manter sua aplicação mais organizada e orientada a objetos, permitindo que você separe facilmente a lógica do controlador de outras partes da aplicação.
